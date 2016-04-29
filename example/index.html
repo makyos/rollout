@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>rollout</title>
+<style>
+
+@media print {
+    body,
+    printarea {
+	background: white;
+	margin: 0;
+	box-shadow: 0;
+	border: none;
+    }
+    @page {
+	size:landscape;
+	margin: 0.0cm;
+	margin-top: 0.0cm;
+	box-shadow: 0;
+    }
+}
+
+body {
+    background: rgb(204, 204, 204);
+}
+
+printarea {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 0.55cm;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+
+    /* page-break-after: always; */
+    page-break-before: always;
+}
+
+printarea[size="A4yoko"] {
+    width:  29.7cm; 
+    height: 21.0cm; /* 21-margin */
+}
+
+hf {
+    position:absolute;
+    z-index:9;
+}
+hf[pos="rt"] {right:5mm; top:5mm;}
+hf[pos="rb"] {right:5mm; bottom:5mm;}
+hf[pos="lb"] {left:5mm; bottom:5mm;}
+hf[pos="lt"] {left:5mm; top:5mm;}
+
+img {
+    /* widht: %; */
+    max-width : 95%; 
+    max-height: 95%; 
+
+    /* vh center! */
+    position: absolute;
+    top:0; right:0; bottom:0; left: 0;
+    margin: auto;
+    /* vh center! */
+
+    border: dashed #777;
+    z-index:0;
+}</style>
+</head>
+
+<body>
+  <printarea size="A4yoko">
+    <hf pos="lb">1.1 AAA</hf>
+    <hf pos="rb">img1.png</hf>
+    <img src="img/img1.png"></img>
+  </printarea>
+  <printarea size="A4yoko">
+    <hf pos="lb">2.1 BBB</hf>
+    <hf pos="rb">img2.png</hf>
+    <img src="img/img2.png"></img>
+  </printarea>
+  <printarea size="A4yoko">
+    <hf pos="lb">3.1 CCC</hf>
+    <hf pos="rb">img3.png</hf>
+    <img src="img/img3.png"></img>
+  </printarea>
+</body>
+</html>
